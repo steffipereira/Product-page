@@ -2,10 +2,11 @@ import { Container, Flex, Image } from "@chakra-ui/react"
 import basket from '../../assets/basket.svg';
 import logo from '../../assets/octopus-logo.svg';
 import { Outlet } from "react-router-dom";
+import { PropsWithChildren } from "react";
 
-export const Header = () => {
+export const Header = ({ children }: PropsWithChildren) => {
   return (
-    <Container maxW={'5xl'} py={12}>
+    <Container maxW="5xl" py={6}>
       <Flex justifyContent="space-between">
         <Flex
           backgroundImage={logo}
@@ -15,11 +16,11 @@ export const Header = () => {
           alignItems="flex-start"
         />
         <Flex gap="1" alignItems="center">
-          1
+          {children}
           <Image
             alt=""
             src={basket}
-            boxSize="6"
+            boxSize={6}
           />
         </Flex>
       </Flex>

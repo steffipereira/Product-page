@@ -9,6 +9,27 @@ export const GET_ALL_PRODUCTS = gql`
   }
 `;
 
+export const GET_PRODUCT = gql`
+  query product($id: ID!) {
+    Product(id: $id) {
+      id
+      name
+      power
+      description
+      price
+      quantity
+      brand
+      weight
+      height
+      width
+      length
+      model_code
+      colour
+      img_url
+    }
+  }
+`;
+
 export const useRefreshedQuery = () => {
   const queryResponse = useQuery(GET_ALL_PRODUCTS)
 
